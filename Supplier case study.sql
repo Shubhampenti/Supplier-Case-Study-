@@ -17,7 +17,7 @@ go
 
 create table SUPPLIERMASTER 
 ( 
-    SID		int				Primary Key,
+        SID     int			Primary Key,
 	NAME	Varchar(40)		NOT NULL ,
 	CITY	Char(6)			NOT NULL,
 	GRADE	Tinyint			NOT NULL
@@ -34,7 +34,7 @@ go
 
 -- insert data
 insert into SUPPLIERMASTER  values (11, 'Nagesh Kassa',		'Delhi', 1)
-insert into SUPPLIERMASTER  values (22, 'Nagesh Kalburgi',  'Mumbai', 2)
+insert into SUPPLIERMASTER  values (22, 'Nagesh Kalburgi',      'Mumbai', 2)
 insert into SUPPLIERMASTER  values (34, 'Revan Mali',		'Nagpur', 3)
 insert into SUPPLIERMASTER  values (43, 'Akshay Shilwant',	'Dule', 4)
 insert into SUPPLIERMASTER  values (52, 'Anish Shah',		'Delhi', 5)
@@ -47,10 +47,10 @@ go
 create table PARTMASTER 
 (	
 	PID		TinyInt			Primary Key,
-	NAME	Varchar(40)		NULL,
-	PRICE	Money			NOT NULL,
-	CATEGORY Tinyint		NOT NULL,
-	QTYONHAND Integer		NULL
+	NAME    	Varchar(40)		NULL,
+	PRICE	        Money			NOT NULL,
+	CATEGORY 	Tinyint			NOT NULL,
+	QTYONHAND 	Integer			NULL
 )
 go
 
@@ -59,19 +59,19 @@ go
 
 insert into PARTMASTER  values (1, 'john', 398, 2, 1)
 insert into PARTMASTER  values (2, 'rohan', 3548, 3, 15)
-insert into PARTMASTER  values (011, 'sohamn', 898, 26, 8)
+insert into PARTMASTER  values (11,'sohamn', 898, 26, 8)
 insert into PARTMASTER  values (5, 'anynahn', 78, 7, 188)
-insert into PARTMASTER values (6, 'sima', 348, 26, 16)
+insert into PARTMASTER values  (6, 'sima', 348, 26, 16)
 insert into PARTMASTER  values (7, 'tima', 358, 4, 14)
 go
 
 create table SUPPLYDETAILS  
 (
-	PID		TinyInt		     Not NULL	Foreign Key references PARTMASTER(PID),
-	SID		Integer			 Not NULL   Foreign Key references SupplierMaster(SID),
-	DATEOFSUPPLY DateTime	 NOT NULL,
+	PID		TinyInt		 Not NULL   Foreign Key references PARTMASTER(PID),
+	SID		Integer		 Not NULL   Foreign Key references SupplierMaster(SID),
+	DATEOFSUPPLY 	DateTime	 NOT NULL,
 	CITY		Varchar(40)	 NOT NULL,
-	QTYSUPPLIED Integer		 NOT NULL
+	QTYSUPPLIED 	Integer		 NOT NULL
 )
 go
 
@@ -90,7 +90,7 @@ GO
 
 		SELECT 
 			MONTH(DOS) as Month ,
-			YEAR(DOS)as Year,
+			YEAR(DOS)  as Year,
 			AVG(QTYSUPP) as AverageSupply
 		FROM 
 			SUPPLYDETAILS
@@ -101,7 +101,7 @@ GO
 			AVG(QTYSUPP) > 20
 
 
---2. List the names of the Suppliers who do not supply part with PID ë1 í .
+--2. List the names of the Suppliers who do not supply part with PID ‚Äò1 ‚Äô .
 
 		SELECT DISTINCT S.NAME
 		FROM SUPPLIERMASTER as S
@@ -147,7 +147,7 @@ GO
 			)
 
 
---7. List name and Price category for all parts. Price category has to be displayed as ìCheapî if price is less than 100,
+--7. List name and Price category for all parts. Price category has to be displayed as ‚ÄúCheap‚Äù if price is less than 100,
 --"Medium" if the price is grater than or equal to 100 and less than 500,and "Costly"if the price  is grater than or 
 --equal to 500.
 
